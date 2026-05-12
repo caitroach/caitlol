@@ -1,18 +1,13 @@
 import "./About.css";
 
-// ── EDIT THESE ──────────────────────────────────────────
-const BIO = `i'm a toronto-based designer and developer who likes making
-quiet corners of the internet. when i'm not staring at figma
-or a terminal, i'm probably reading, rewatching gilmore girls,
-or finding new fonts to hoard.`;
+const BIO = `hi, i'm cait!! bio here!`;
 
 const LINKS = [
-  { label: "github", href: "https://github.com/cait" },
+  { label: "github", href: "https://github.com/caitroach" },
   { label: "are.na", href: "https://are.na/cait" },
-  { label: "letterboxd", href: "https://letterboxd.com/cait" },
-  { label: "email", href: "mailto:hi@cait.lol" },
+  { label: "letterboxd", href: "https://letterboxd.com/cait42" },
+  { label: "email", href: "roachc006@gmail.com" },
 ];
-// ────────────────────────────────────────────────────────
 
 export default function About() {
   return (
