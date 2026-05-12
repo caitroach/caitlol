@@ -1,0 +1,9 @@
+.tool-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.tool-body {
+  max-width: 360px;
+}

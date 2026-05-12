@@ -1,0 +1,28 @@
+.about-bio {
+  font-size: 13px;
+  color: var(--gray-700);
+  line-height: 1.8;
+  white-space: pre-line;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.about-link {
+  font-size: 12px;
+  color: var(--gray-700);
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--gray-300);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.about-link:hover {
+  color: var(--black);
+  border-color: var(--black);
+}

@@ -1,0 +1,14 @@
+.footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--gray-500);
+  letter-spacing: 0.5px;
+}
+
+.footer-right {
+  color: var(--gray-500);
+}
