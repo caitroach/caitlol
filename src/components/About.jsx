@@ -7,7 +7,7 @@ const LINKS = [
   { label: "the gram", href: "https://instagram.com/cait.42" },
   { label: "fable", href: "https://fable.co/fabler/cait-594836290790"}
   { label: "letterboxd", href: "https://letterboxd.com/cait42" },
-  { label: "spotify", href: "https://open.spotify.com/user/pkzv78wyv7jntbq6nt56minc9"}
+  { label: "spotify", href: "https://open.spotify.com/user/pkzv78wyv7jntbq6nt56minc9"},
   { label: "email", href: "roachc006@gmail.com" },
 ];
 
