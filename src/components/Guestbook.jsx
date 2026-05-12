@@ -5,7 +5,7 @@ import "./Guestbook.css";
 // 1. Create a Google Sheet with columns: timestamp, name, message
 // 2. Extensions → Apps Script → paste the backend script (see README)
 // 3. Deploy as Web App → copy the URL here
-const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_URL_HERE";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-LgGcwEYEG0rX6RHz_CG5OP9A_Svgn66aTz5VY03X8a60SJnazMUMe3QAI6JkFbm6/exec";
 
 // Fallback messages shown before real data loads
 const SEED_MESSAGES = [
@@ -23,7 +23,7 @@ export default function Guestbook({ full }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (APPS_SCRIPT_URL === "YOUR_APPS_SCRIPT_URL_HERE") return;
+    if (APPS_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbw-LgGcwEYEG0rX6RHz_CG5OP9A_Svgn66aTz5VY03X8a60SJnazMUMe3QAI6JkFbm6/exec") return;
     fetch(`${APPS_SCRIPT_URL}?action=get`)
       .then(r => r.json())
       .then(data => {
