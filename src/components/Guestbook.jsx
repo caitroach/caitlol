@@ -23,7 +23,7 @@ export default function Guestbook({ full }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (APPS_SCRIPT_URL === APP_SCRIPT_URL) return;
+    if (APPS_SCRIPT_URL === APPS_SCRIPT_URL) return;
     fetch(`${APPS_SCRIPT_URL}?action=get`)
       .then(r => r.json())
       .then(data => {
