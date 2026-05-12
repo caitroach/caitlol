@@ -23,7 +23,7 @@ export default function Guestbook({ full }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (APPS_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbw-LgGcwEYEG0rX6RHz_CG5OP9A_Svgn66aTz5VY03X8a60SJnazMUMe3QAI6JkFbm6/exec") return;
+    if (APPS_SCRIPT_URL === APP_SCRIPT_URL) return;
     fetch(`${APPS_SCRIPT_URL}?action=get`)
       .then(r => r.json())
       .then(data => {
