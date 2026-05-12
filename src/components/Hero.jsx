@@ -3,13 +3,13 @@ import "./Hero.css";
 
 // ── EDIT THESE ──────────────────────────────────────────
 const CURRENTLY_READING = {
-  title: "The Secret History",
-  author: "Donna Tartt",
+  title: "The Count of Monte Cristo",
+  author: "Alexandre Dumas",
 };
 
 const NOW_PLAYING = {
-  song: "Only Time",
-  artist: "Enya",
+  song: "Oakland Blackouts",
+  artist: "Hieroglyphics",
 };
 // ────────────────────────────────────────────────────────
 
@@ -37,8 +37,7 @@ export default function Hero({ setActivePage }) {
         hi, i'm cait.<span className="blink">_</span>
       </h1>
       <p className="hero-bio">
-        designer & developer. i make things for the internet and collect
-        fonts i'll never use.
+        student developer. i make fun sites and hoard fonts i'll never use.
       </p>
 
       <div className="hero-status">

@@ -49,7 +49,7 @@ export default function Guestbook({ full }) {
     setName("");
     setMsg("");
 
-    if (APPS_SCRIPT_URL !== "YOUR_APPS_SCRIPT_URL_HERE") {
+    if (APPS_SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbw-LgGcwEYEG0rX6RHz_CG5OP9A_Svgn66aTz5VY03X8a60SJnazMUMe3QAI6JkFbm6/exec") {
       try {
         await fetch(APPS_SCRIPT_URL, {
           method: "POST",
