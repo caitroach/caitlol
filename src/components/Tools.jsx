@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Minesweeper from "./Minesweeper";
-import AsciiGen from "./AsciiGen";
-import TarotCard from "./Tarotreading";
+import Minesweeper from "./Minesweeper.jsx";
+import AsciiGen from "./AsciiGen.jsx";
+import TarotCard from "./Tarotreading.jsx";
 import "./Tools.css";
 
 const TOOLS = [
