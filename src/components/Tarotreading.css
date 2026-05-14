@@ -1,0 +1,24 @@
+.tarot-result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tarot-result img {
+  width: 120px;
+  border: 1px solid var(--gray-200);
+  display: block;
+}
+
+.tarot-result p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--black);
+  margin: 0;
+}
+
+.tarot-draw-btn {
+  align-self: flex-start;
+  font-size: 12px;
+  padding: 3px 12px 1px;
+}

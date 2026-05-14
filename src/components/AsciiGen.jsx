@@ -68,7 +68,6 @@ const ASCII_LIST = [
   "／(=･ × ･=)＼",
   "ヾ(・ω・)メ(・ω・)ノ"
 ];
-const LENASCII = ASCII_LIST.length;
 
 const BLOCK_MAP = {
  //make ascii blocks here 
@@ -89,7 +88,7 @@ async function generateAscii(text) {
   //fake loading 
   //grab random line from ascii text list... or array? return.
 
-  const rand_kao = ASCII_LIST[Math.floor(Math.random()*LENASCII)];
+  const rand_kao = ASCII_LIST[Math.floor(Math.random()*ASCII_LIST.length)];
   return rand_kao
   
 }
