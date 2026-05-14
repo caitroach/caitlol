@@ -11,6 +11,13 @@
   display: block;
 }
 
+.tarot-pic {
+    width: 120px;
+    max-width: 80%;
+    border: none;
+    display: block;
+}
+
 .tarot-result p {
   font-size: 12px;
   line-height: 1.6;

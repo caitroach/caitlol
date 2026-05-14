@@ -38,7 +38,7 @@ export default function TarotCard() {
       const [card, setCard] = useState(null);
 
   return (
-    <div className="tarot-result">
+    <div className="tarot-pic">
       <button className="outline tarot-draw-btn" onClick={() => setCard(grabTarot())}>
         draw a card ✦
       </button>
