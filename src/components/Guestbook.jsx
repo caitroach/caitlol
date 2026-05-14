@@ -1,17 +1,9 @@
 import { useState, useEffect } from "react";
 import "./Guestbook.css";
 
-// ── SETUP ────────────────────────────────────────────────
-// 1. Create a Google Sheet with columns: timestamp, name, message
-// 2. Extensions → Apps Script → paste the backend script (see README)
-// 3. Deploy as Web App → copy the URL here
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxq7-aunbtKixtXUSH81Ya9Szwn-JTRjPwkv5PxP-QASqOATWambm1mJd4aFSLL8HA1/exec";
-
-// Fallback messages shown before real data loads
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWS5u3hclCROP8LFiu8gqYMn5_zHbliUZbtNOGBwfD3KBezhPEMDIaYjE0UaUjt4wz/exec"
 const SEED_MESSAGES = [
-  { name: "pixelghost", message: "love this site so much ✦", timestamp: "2025-01-03" },
-  { name: "y2k_forever", message: "bookmarked !", timestamp: "2025-01-02" },
-  { name: "moonreader", message: "the minesweeper got me", timestamp: "2025-01-01" },
+  { name: "pee", message: "does this work?", timestamp: "2025-01-03" },
 ];
 // ────────────────────────────────────────────────────────
 
@@ -49,7 +41,7 @@ export default function Guestbook({ full }) {
     setName("");
     setMsg("");
 
-    if (APPS_SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbxq7-aunbtKixtXUSH81Ya9Szwn-JTRjPwkv5PxP-QASqOATWambm1mJd4aFSLL8HA1/exec") {
+    if (APPS_SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbyWS5u3hclCROP8LFiu8gqYMn5_zHbliUZbtNOGBwfD3KBezhPEMDIaYjE0UaUjt4wz/exec") {
       try {
         await fetch(APPS_SCRIPT_URL, {
           method: "POST",
@@ -94,7 +86,7 @@ export default function Guestbook({ full }) {
             {status === "sending" ? "..." : "post"}
           </button>
         </div>
-        {status === "sent" && <p className="gb-status">posted ✓</p>}
+        {status === "sent" && <p className="gb-status">posted.</p>}
         {status === "error" && <p className="gb-status error">something went wrong</p>}
       </div>
 
