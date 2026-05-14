@@ -12,10 +12,9 @@
 }*/
 
 .tarot-pic {
-    width: 120px;
-    max-width: 80%;
-    border: none;
-    display: block;
+  width: 120px;
+  height: auto;
+  display: block;
 }
 
 .tarot-result p {
