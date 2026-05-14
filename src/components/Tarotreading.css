@@ -1,6 +1,7 @@
 .tarot-result {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
 
@@ -9,6 +10,7 @@
   max-width: 100%;
   border: 1px solid var(--gray-200);
   display: block;
+  align-items: center;
 }
 
 .tarot-pic {
