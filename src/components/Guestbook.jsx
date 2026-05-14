@@ -67,7 +67,7 @@ export default function Guestbook({ full }) {
         <input
           value={name}
           onChange={e => setName(e.target.value)}
-          placeholder="name (or leave blank)"
+          placeholder="name"
           maxLength={30}
           style={{ marginBottom: "8px" }}
         />

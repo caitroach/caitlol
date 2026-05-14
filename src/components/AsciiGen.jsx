@@ -1,14 +1,78 @@
 import { useState } from "react";
 import "./AsciiGen.css";
 
+const ASCII_LIST = [
+  "(* ^ ω ^)",
+  "(´ ∀ *)",
+  "٩(◕‿◕｡)۶",
+  "☆*:.｡.o(≧▽≦)o.｡.:*☆",
+  "(o^▽^o)",
+  "(⌒▽⌒)☆",
+  "<(￣︶￣)>",
+  "。.:☆*:･'(*⌒―⌒*)))",
+  "(´｡• ω •｡)",
+  "(─‿‿─)",
+  "٩(｡•́‿•̀｡)۶",
+  "(✧ω✧)",
+  "(っ˘ω˘ς )",
+  "(╯✧▽✧)╯",
+  "(„• ֊ •„)",
+  "♡〜٩( ˃́▿˂̀ )۶〜♡",
+  "ヽ(♡‿♡)ノ",
+  "(♡˙︶˙♡)",
+  "(°◡°♡)",
+  "(´,,•ω•,,)♡",
+  "(⁄ ⁄•⁄ω⁄•⁄ ⁄)",
+  "(；￣Д￣)",
+  "(눈_눈)",
+  "(︶︹︺)",
+  "凸(￣ヘ￣)",
+  "(＞﹏＜)",
+  "(⇀‸↼‶)",
+  "凸( ﾛ ´ )凸",
+  "(；一_一)",
+  "(҂⌣̀_⌣́)",
+  "＼＼٩(๑`^´๑)۶／／",
+  "(╬ Ò﹏Ó)",
+  ".｡･ﾟﾟ･(＞_＜)･ﾟﾟ･｡.",
+  "(｡•́︿•̀｡)",
+  "( ╥ω╥ )",
+  "｡ﾟ･ (>﹏<) ･ﾟ｡",
+  "(´-ω-)",
+  "(ಡ‸ಡ)",
+  "(×_×)⌒☆",
+  "(☆_@)",
+  "o(｀ω´*)o",
+  "..・ヾ(。＞＜)シ",
+  "Σ(っ °Д °;)っ",
+  "ᕕ( ᐛ )ᕗ",
+  "┐(￣ヮ￣)┌",
+  "ლ(¯ロ¯ლ)",
+  "Σ(‘◉⌓◉’)",
+  "(・・?",
+  "Σ( ° △ °|||)︴",
+  "(→_→)",
+  "Σ(°ロ°)",
+  "(ʘ言ʘ╬)",
+  "Σ(º ﾛ º๑)",
+  "(´• ω •)ﾉ",
+  "ヾ(☆▽☆)",
+  "(⌒ω⌒)ﾉ",
+  "⊂(´• ω •⊂)",
+  "(^_−)☆",
+  "┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴",
+  "ε=ε=ε=ε=ε=ε=┌(;￣▽￣)┘",
+  "(∪｡∪)｡｡｡zzZ",
+  "(=^･ω･^)y＝",
+  "ʕ•́ᴥ•̀ʔっ",
+  "／(=･ × ･=)＼",
+  "ヾ(・ω・)メ(・ω・)ノ"
+];
+const LENASCII = len(ASCII_LIST);
+
 const BLOCK_MAP = {
-  A:"▄▀█",B:"█▀▄█",C:"▄▀▀",D:"█▀▄█",E:"█▀▀▀█",F:"█▀▀▄",G:"▄▀▄█",
-  H:"█ █▀█",I:"▀█▀",J:"  █▌",K:"█▄▀█",L:"█  ▀",M:"███ █",N:"█▄ █▀",
-  O:"▄█▄",P:"█▀▀█",Q:"▄█▄▌",R:"█▀▀█▀",S:"▀▀▄",T:"▀█▀",U:"█ ▀▄",
-  V:"█ ▀",W:"█▄█▄█",X:"▀▄▄▀",Y:"▀▄▀",Z:"▀▄▀",
-  "0":"▄█▄","1":" █","2":"▀▄▀","3":"▀▄▄","4":"█▄█","5":"█▀▀",
-  "6":"▄▀▀","7":"▀▄","8":"▀█▀","9":"▀▄▄"," ":"   ",
-  "!":"█ ▪",".":"▪",",":"▄","?":"▀ ▪","★":"★","♡":"♡"
+ //make ascii blocks here 
+
 };
 
 function toBlock(text) {
@@ -19,28 +83,15 @@ function toBlock(text) {
     .join(" ");
 }
 
-// Uses Claude API for creative ASCII art
 async function generateAscii(text) {
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1000,
-      messages: [{
-        role: "user",
-        content: `Create a cute ASCII art representation of: "${text}"
-Rules:
-- Use only printable ASCII characters
-- Keep it small, max 8 lines tall, max 40 chars wide
-- Make it charming and minimal
-- No explanation, just the ASCII art itself
-- Center each line with spaces if needed`
-      }]
-    })
-  });
-  const data = await res.json();
-  return data.content?.[0]?.text || toBlock(text);
+  
+  //display text says "that face when..."
+  //fake loading 
+  //grab random line from ascii text list... or array? return.
+
+  const rand_kao = ASCII_LIST[Math.floor(Math.random()*LENASCII)];
+  return rand_kao
+  
 }
 
 export default function AsciiGen() {
@@ -52,7 +103,7 @@ export default function AsciiGen() {
  cait.lol`
   );
   const [loading, setLoading] = useState(false);
-  const [mode, setMode] = useState("ai"); // ai | block
+  const [mode, setMode] = useState("ai"); //nyehhh fix this....
 
   const generate = async () => {
     if (!input.trim()) return;
@@ -82,23 +133,23 @@ export default function AsciiGen() {
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === "Enter" && generate()}
-          placeholder="type anything..."
+          placeholder="that face when..."
           maxLength={30}
         />
         <button onClick={generate} disabled={loading}>
-          {loading ? "..." : "gen"}
+          {loading ? "..." : "GO!"}
         </button>
       </div>
       <div className="ascii-mode">
         <button
-          className={mode === "ai" ? "" : "outline"}
-          onClick={() => setMode("ai")}
+          className={mode === "kaomoji" ? "" : "block text"}
+          onClick={() => setMode("kaomoji")}
           style={{ fontSize: "11px", padding: "2px 10px" }}
         >
-          ai art
+          kaomoji
         </button>
         <button
-          className={mode === "block" ? "" : "outline"}
+          className={mode === "block" ? "" : "block text"}
           onClick={() => setMode("block")}
           style={{ fontSize: "11px", padding: "2px 10px" }}
         >

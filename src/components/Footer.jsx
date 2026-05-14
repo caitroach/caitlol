@@ -3,9 +3,9 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <footer className="footer">
-      <span>cait.lol — made with ♡ in toronto</span>
+      <span>made with ♡ in toronto</span>
       <span className="footer-right">
-        <span id="visitor-count">✦ est. 2025</span>
+        <span id="visitor-count">1,456,843 visitors</span>
       </span>
     </footer>
   );
