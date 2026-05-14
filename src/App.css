@@ -28,7 +28,7 @@ body {
   font-family: var(--font-mono);
   background: var(--white);
   color: var(--black);
-  font-size: 14px;
+  font-size: 30px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }

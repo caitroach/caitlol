@@ -15,7 +15,7 @@ export default function Guestbook({ full }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (APPS_SCRIPT_URL === APPS_SCRIPT_URL) return;
+    if (!APPS_SCRIPT_URL) return;
     fetch(`${APPS_SCRIPT_URL}?action=get`)
       .then(r => r.json())
       .then(data => {
@@ -41,7 +41,7 @@ export default function Guestbook({ full }) {
     setName("");
     setMsg("");
 
-    if (APPS_SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbyWS5u3hclCROP8LFiu8gqYMn5_zHbliUZbtNOGBwfD3KBezhPEMDIaYjE0UaUjt4wz/exec") {
+    if (APPS_SCRIPT_URL) {
       try {
         await fetch(APPS_SCRIPT_URL, {
           method: "POST",
