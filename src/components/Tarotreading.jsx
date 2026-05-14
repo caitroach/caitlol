@@ -1,7 +1,7 @@
 import { useState } from "react";
 //make tarot css;
 import "./Tools.css";
-import "Tarotreading.css"
+import "./Tarotreading.css";
 
 const tarot_reading = {
     "public/tarot/0thefool.jpg": "the fool represents new beginnings and limitless potential. take a leap of faith into the unknown, but beware of recklessness and unintended consequences.",
