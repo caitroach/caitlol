@@ -4,12 +4,12 @@
   gap: 10px;
 }
 
-.tarot-result img {
+/*tarot-result img {
   width: 120px;
   max-width: 100%;
   border: 1px solid var(--gray-200);
   display: block;
-}
+}*/
 
 .tarot-pic {
     width: 120px;

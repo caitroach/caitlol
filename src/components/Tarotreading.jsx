@@ -38,13 +38,13 @@ export default function TarotCard() {
       const [card, setCard] = useState(null);
 
   return (
-    <div className="tarot-pic">
+    <div className="tarot-result">
       <button className="outline tarot-draw-btn" onClick={() => setCard(grabTarot())}>
         draw a card ✦
       </button>
       {card && (
   <>
-    <img src={card.img}/>
+    <img src={card.img} className="tarot-pic"/>
     <p>{card.text}</p>
   </>
 )}
