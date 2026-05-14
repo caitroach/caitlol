@@ -47,7 +47,7 @@
   --font-retro: 'VT323', monospace;
   --border: 1px solid var(--gray-300);
   --border-dark: 1px solid var(--black);
-  --max-w: 680px;
+  --max-w: 1000px;
   --section-pad: 48px 24px;
 }
 
