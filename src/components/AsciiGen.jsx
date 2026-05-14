@@ -68,7 +68,7 @@ const ASCII_LIST = [
   "／(=･ × ･=)＼",
   "ヾ(・ω・)メ(・ω・)ノ"
 ];
-const LENASCII = ASCII_LIST.length();
+const LENASCII = ASCII_LIST.length;
 
 const BLOCK_MAP = {
  //make ascii blocks here 
