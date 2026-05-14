@@ -53,7 +53,8 @@ body {
    ============================================================ */
 
 .site {
-  max-width: var(--max-w);
+  max-width: 80%;
+  /*max-width: var(--max-w);*/
   margin: 0 auto;
   min-height: 100vh;
   border-left: var(--border);
