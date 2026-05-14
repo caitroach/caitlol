@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Hero.css";
 
-// ── EDIT THESE ──────────────────────────────────────────
 const CURRENTLY_READING = {
   title: "The Count of Monte Cristo",
   author: "Alexandre Dumas",
@@ -11,7 +10,6 @@ const NOW_PLAYING = {
   song: "Oakland Blackouts",
   artist: "Hieroglyphics",
 };
-// ────────────────────────────────────────────────────────
 
 export default function Hero({ setActivePage }) {
   const [time, setTime] = useState("");
@@ -37,7 +35,10 @@ export default function Hero({ setActivePage }) {
         hi, i'm cait.<span className="blink">_</span>
       </h1>
       <p className="hero-bio">
-        student developer. i make fun sites and hoard fonts i'll never use.
+        ginger. goalie. bunny enthusiast. 
+      </p>
+      <p className="hero-bio">
+        i study math + compsci at Queen's. i'm interested in cybersecurity and ML. reach out if you want to talk.
       </p>
 
       <div className="hero-status">

@@ -2,16 +2,14 @@ import { useState, useEffect } from "react";
 import "./Guestbook.css";
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWS5u3hclCROP8LFiu8gqYMn5_zHbliUZbtNOGBwfD3KBezhPEMDIaYjE0UaUjt4wz/exec"
-const SEED_MESSAGES = [
-  { name: "pee", message: "does this work?", timestamp: "2025-01-03" },
+const SEED_MESSAGES = [ // can put starter messages here but not gonna...
 ];
-// ────────────────────────────────────────────────────────
 
 export default function Guestbook({ full }) {
   const [messages, setMessages] = useState(SEED_MESSAGES);
   const [name, setName] = useState("");
   const [msg, setMsg] = useState("");
-  const [status, setStatus] = useState(""); // "" | "sending" | "sent" | "error"
+  const [status, setStatus] = useState("");
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -36,7 +34,6 @@ export default function Guestbook({ full }) {
       timestamp: new Date().toISOString().slice(0, 10),
     };
 
-    // Optimistic update
     setMessages(prev => [entry, ...prev]);
     setName("");
     setMsg("");
