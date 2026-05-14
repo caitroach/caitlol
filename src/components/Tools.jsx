@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Minesweeper from "./Minesweeper";
 import AsciiGen from "./AsciiGen";
+import TarotCard from "./Tarotreading";
 import "./Tools.css";
 
 const TOOLS = [
   { id: "minesweeper", label: "minesweeper" },
   { id: "ascii", label: "ascii generator" },
+  { id: "tarot", label: "tarot reading" },  // ← added
 ];
 
 export default function Tools({ full }) {
@@ -29,6 +31,7 @@ export default function Tools({ full }) {
       <div className="tool-body">
         {active === "minesweeper" && <Minesweeper />}
         {active === "ascii" && <AsciiGen />}
+        {active === "tarot" && <TarotCard />}  {/* ← fixed */}
       </div>
     </section>
   );
