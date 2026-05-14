@@ -31,10 +31,7 @@ const tarot_reading = {
 function grabTarot() {
   const keys = Object.keys(tarot_reading);
   const key = keys[Math.floor(Math.random() * keys.length)];
-
-  const name = key.replace("tarot/", "").replace(".jpg", "").replace(/^\d+/, "").replace(/([a-z])([a-z]+)/g, "$1$2");
-
-  return { img: key, text: tarot_reading[key], name };
+  return { img: key, text: tarot_reading[key]};
 }
 
 export default function TarotCard() {
@@ -47,8 +44,7 @@ export default function TarotCard() {
       </button>
       {card && (
   <>
-    <img src={card.img} alt={card.name} />
-    <p className="tarot-name">{card.name}</p>
+    <img src={card.img}/>
     <p>{card.text}</p>
   </>
 )}
