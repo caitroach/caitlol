@@ -1,13 +1,10 @@
 import { useState } from "react";
 import "./Blog.css";
- 
-// ─── ADD YOUR POSTS HERE ───────────────────────────────────────────────────
-// When you add a new .md file to /src/posts/, import it here and add it to
-// the POSTS array. Keep newest first.
-// ──────────────────────────────────────────────────────────────────────────
- 
-import post1Raw from "../posts/2026-05-18-hello-world.md?raw";
-import post2Raw from "../posts/2026-04-30-fonts.md?raw";
+
+// import post1Raw from "../posts/2026-05-18-hello-world.md?raw";
+// import post2Raw from "../posts/2026-04-30-fonts.md?raw";
+
+import post1Raw from "../posts/hellowORLD.md?raw";
  
 // Parse frontmatter + body from raw markdown string
 function parsePost(raw, id) {
@@ -25,7 +22,6 @@ function parsePost(raw, id) {
  
 const RAW_POSTS = [
   { raw: post1Raw, id: "hello-world" },
-  { raw: post2Raw, id: "fonts" },
 ];
  
 const POSTS = RAW_POSTS.map(({ raw, id }) => parsePost(raw, id)).filter(Boolean);
