@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Tools from "./components/Tools";
 import Guestbook from "./components/Guestbook";
+import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -17,11 +18,13 @@ export default function App() {
         {activePage === "home" && (
           <>
             <Hero setActivePage={setActivePage} />
+            <Blog />
             <About />
             <Tools />
             <Guestbook />
           </>
         )}
+        {activePage === "blog" && <Blog full />}
         {activePage === "guestbook" && <Guestbook full />}
         {activePage === "tools" && <Tools full />}
       </main>

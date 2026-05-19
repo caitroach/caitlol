@@ -1,6 +1,6 @@
 import "./Nav.css";
 
-const links = ["about", "tools", "guestbook"];
+const links = ["blog","about", "tools", "guestbook"];
 
 export default function Nav({ activePage, setActivePage }) {
   return (
