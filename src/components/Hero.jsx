@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Hero.css";
 
 const CURRENTLY_READING = {
-  title: "The Count of Monte Cristo",
+  title: "oooooooooo",
   author: "Alexandre Dumas",
 };
 
