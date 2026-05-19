@@ -99,7 +99,7 @@ textarea:focus {
 
 button {
   font-family: var(--font-retro);
-  font-size: 16px;
+  font-size: 25px;
   letter-spacing: 1px;
   cursor: pointer;
   border: var(--border-dark);
@@ -238,7 +238,7 @@ a {
 }
 
 .hero-bio {
-  font-size: 13px;
+  font-size: 20px;
   color: var(--gray-700);
   max-width: 400px;
   line-height: 1.7;
@@ -294,12 +294,13 @@ a {
    ============================================================ */
 
 .about-bio {
-  font-size: 13px;
+  font-size: 20px;
   color: var(--gray-700);
   line-height: 1.8;
   white-space: pre-line;
   max-width: 480px;
   margin-bottom: 28px;
+  align-items: center;
 }
 
 .about-links {

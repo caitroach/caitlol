@@ -11,6 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px 20px;
+  align-items: center;
 }
 
 .about-link {
