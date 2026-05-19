@@ -14,6 +14,8 @@ export default function App() {
   return (
     <div className="site">
       <Nav activePage={activePage} setActivePage={setActivePage} />
+        console.log(activePage)
+
       <main>
         {activePage === "home" && (
           <>
