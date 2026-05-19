@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Guestbook.css";
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWS5u3hclCROP8LFiu8gqYMn5_zHbliUZbtNOGBwfD3KBezhPEMDIaYjE0UaUjt4wz/exec"
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbTFNhhVwW5VfFAZVfLqqfU50DbJlSlTxkqJo5PXH3pdiKIRam5hOtd1_DHSwSwySB/exec"
 const SEED_MESSAGES = [ // can put starter messages here but not gonna...
 ];
 
