@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/caitlol-new/",
+  base: "/caitlol",
   build: {
     outDir: "docs",
   },
