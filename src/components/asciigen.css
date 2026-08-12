@@ -1,0 +1,43 @@
+.ascii-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ascii-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.ascii-controls input {
+  flex: 1;
+}
+
+.ascii-controls button {
+  flex-shrink: 0;
+}
+
+.ascii-mode {
+  display: flex;
+  gap: 4px;
+}
+
+.ascii-output {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  padding: 16px;
+  white-space: pre;
+  overflow-x: auto;
+  min-height: 90px;
+  color: var(--black);
+}
+
+.copy-btn {
+  align-self: flex-start;
+  font-size: 12px;
+  padding: 3px 12px 1px;
+}

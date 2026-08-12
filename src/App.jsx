@@ -15,7 +15,7 @@ function App() {
         {activePage === "home" && (
             <>
                 <h1>welcome to cait.lol</h1>
-                <p>it works!! nyaa</p>
+                <p>this site is under construction and so am i</p>
             </>
         )}
         {activePage === "tools" && <Tools full />}

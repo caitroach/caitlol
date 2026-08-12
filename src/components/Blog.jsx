@@ -5,6 +5,7 @@ import "./Blog.css";
 // import post2Raw from "../posts/2026-04-30-fonts.md?raw";
 
 import post1 from "../assets/posts/post1.md?raw";
+import post2 from "../assets/posts/post2.md?raw";
  
 // Parse frontmatter + body from raw markdown string
 function parsePost(raw, id) {
@@ -22,12 +23,13 @@ function parsePost(raw, id) {
  
 const RAW_POSTS = [
   { raw: post1, id: "hello-world" },
+  { raw: post2, id: "on tha train"}
 ];
  
 const POSTS = RAW_POSTS.map(({ raw, id }) => parsePost(raw, id)).filter(Boolean);
  
-// Very minimal markdown renderer (bold, inline code, line breaks, paragraphs)
-function renderMarkdown(text) {
+// uuuuhhhhh i should sort it by date instead of titleeee....... it's been 4ever since i worked on this so 
+function renderMarkdown(text) { //note to self fix it i guess
   const lines = text.split("\n");
   const elements = [];
   let i = 0;
