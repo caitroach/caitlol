@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>♡ welcome to cait.lol ♡</title>
+<title>♡ my little corner of the web ♡</title>
 <style>
   /* ═══ EDIT ME: colors ═══ */
   :root{
@@ -31,7 +31,7 @@
 
   /* ═══ the window ═══ */
   .window{
-    max-width:720px; margin:0 auto;
+    max-width:80%; margin:0 auto;
     background:var(--shell);
     border:3px solid var(--grape);
     border-radius:10px;
@@ -169,7 +169,6 @@
 
   <div class="body">
     <nav>
-      <!-- EDIT ME: your links -->
       <a href="#about">✿ about me</a>
       <a href="#stuff">✿ my stuff</a>
       <a href="#now">✿ now</a>
@@ -177,22 +176,22 @@
       <a href="#guestbook">✿ guestbook</a>
       <a href="#talk">✿ say hi</a>
       <p class="badges">
-        <span class="badge">100% gluten-free</span>
-        <span class="badge">no seed oils</span>
-        <span class="badge">zero calories</span>
+        <span class="badge">gluten free!</span>
+        <span class="badge">now with sparkles</span>
+        <span class="badge">YOLO... unless the Buddhists are right</span>
       </p>
     </nav>
 
     <main>
-      <h1 id="about">hi, i'm cait.</h1>
-      <p class="tagline">student. developer. ginger. · toronto · she/her</p>
-      <p>welcome to my tiny corner of the internet !! i make things, i break things, and this page is where they all live. no algorithm, no ads, just meee >_&lt;</p>
+      <h1 id="about">hi, i'm cait</h1>
+      <p class="tagline">student. dev. ginger. · toronto & kingston · she/her</p>
+      <p>welcome to my tiny corner of the internet !! i make things, i break things, and this page is where they all live. no algorithm, no ads, just me >_&lt;</p>
 
       <h2 id="stuff">my stuff</h2>
       <ul>
-        <li><a href="#">project one</a> — PLACEHOLD</li>
-        <li><a href="#">project two</a> — PLACEHOLDER</li>
-        <li><a href="#">project three</a> — PLACEHOLDER</li>
+        <li><a href="#">project one</a> — what it does, in one line</li>
+        <li><a href="#">project two</a> — what it does, in one line</li>
+        <li><a href="#">project three</a> — what it does, in one line</li>
       </ul>
 
       <h2 id="now">now</h2>
@@ -209,9 +208,8 @@
 
       <h2 id="guestbook">guestbook</h2>
       <div class="gb-form">
-        <input id="gb-name" placeholder="your name" maxlength="40">
-        <input id="gb-url" placeholder="your site (optional)" maxlength="120">
-        <textarea id="gb-msg" placeholder="leave a note ♡" maxlength="500"></textarea>
+        <input id="gb-name" placeholder="your name" maxlength="30">
+        <textarea id="gb-msg" placeholder="leave a note ♡" maxlength="120"></textarea>
       </div>
       <button id="gb-send">sign it</button>
       <p class="status" id="gb-status"></p>
@@ -227,7 +225,7 @@
     </main>
   </div>
 
-  <footer>♡ made with love + notepad, 2026 ♡</footer>
+  <footer>♡ made with love + notepad, 2026 ♡ · build&nbsp;3</footer>
 </div>
 
 <script>
@@ -275,50 +273,69 @@
   });
 
   /* ═══════════ GUESTBOOK ═══════════
-     EDIT ME: paste your Apps Script /exec URL here. */
-  var GUESTBOOK_URL = "https://script.google.com/macros/s/AKfycbxbTFNhhVwW5VfFAZVfLqqfU50DbJlSlTxkqJo5PXH3pdiKIRam5hOtd1_DHSwSwySB/exec?action=get";
+     talks to the same Apps Script your React version uses:
+       GET  ?action=get  ->  { messages: [ {name, message, timestamp}, ... ] }
+       POST { action:"post", name, message, timestamp }                       */
+  var GUESTBOOK_URL = "https://script.google.com/macros/s/AKfycbxbTFNhhVwW5VfFAZVfLqqfU50DbJlSlTxkqJo5PXH3pdiKIRam5hOtd1_DHSwSwySB/exec";
 
-  var status = document.getElementById('gb-status');
-  var esc = function(s){
+  var statusEl  = document.getElementById('gb-status');
+  var entriesEl = document.getElementById('gb-entries');
+  var messages  = [];
+
+  function esc(s){
     return String(s == null ? '' : s).replace(/[&<>"]/g, function(m){
       return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];
     });
-  };
+  }
+
+  function render(){
+    entriesEl.innerHTML = messages.map(function(m){
+      return '<div class="entry"><b>' + esc(m.name) + '</b> ' +
+             '<small>' + esc(String(m.timestamp || '').slice(0, 10)) + '</small><br>' +
+             esc(m.message) + '</div>';
+    }).join('');
+  }
 
   function loadEntries(){
-    if (!GUESTBOOK_URL) { status.textContent = 'guestbook not connected yet'; return; }
-    fetch(GUESTBOOK_URL)
+    statusEl.textContent = 'loading guestbook...';
+    fetch(GUESTBOOK_URL + '?action=get')
       .then(function(r){ return r.json(); })
-      .then(function(rows){
-        document.getElementById('gb-entries').innerHTML = rows.slice().reverse().map(function(e){
-          var who = e.url ? '<a href="' + esc(e.url) + '" rel="nofollow noopener">' + esc(e.name) + '</a>' : esc(e.name);
-          return '<div class="entry"><b>' + who + '</b> <small>' + esc(e.date || '') + '</small><br>' + esc(e.message) + '</div>';
-        }).join('');
+      .then(function(data){
+        messages = (data.messages || []).reverse(); // newest first
+        render();
+        statusEl.textContent = messages.length + ' notes loaded ♡';
       })
-      .catch(function(){ status.textContent = "couldn't load the guestbook — try refreshing"; });
+      .catch(function(err){ statusEl.textContent = 'load failed: ' + err.message; });
   }
 
   document.getElementById('gb-send').addEventListener('click', function(){
-    var name = document.getElementById('gb-name').value.trim();
-    var msg  = document.getElementById('gb-msg').value.trim();
-    if (!name || !msg) { status.textContent = 'name and note are both needed!'; return; }
-    if (!GUESTBOOK_URL) { status.textContent = 'add your Apps Script URL first'; return; }
-    status.textContent = 'sending...';
+    var msgBox = document.getElementById('gb-msg');
+    var nameBox = document.getElementById('gb-name');
+    if (!msgBox.value.trim()) { statusEl.textContent = 'write a note first!'; return; }
+
+    var entry = {
+      name: nameBox.value.trim() || 'anon',
+      message: msgBox.value.trim(),
+      timestamp: new Date().toISOString().slice(0, 10)
+    };
+
+    // show it right away, then send
+    messages.unshift(entry);
+    render();
+    nameBox.value = '';
+    msgBox.value = '';
+    statusEl.textContent = 'sending...';
+
     fetch(GUESTBOOK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // avoids a CORS preflight
-      body: JSON.stringify({
-        name: name,
-        url: document.getElementById('gb-url').value.trim(),
-        message: msg
-      })
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'post', name: entry.name, message: entry.message, timestamp: entry.timestamp })
     })
-    .then(function(){
-      status.textContent = 'signed! thank u ♡';
-      document.getElementById('gb-msg').value = '';
-      loadEntries();
-    })
-    .catch(function(){ status.textContent = "that didn't send — try again in a sec"; });
+    .then(function(){ statusEl.textContent = 'posted ♡'; })
+    .catch(function(){ statusEl.textContent = "that didn't send — try again in a sec"; });
+
+    setTimeout(function(){ statusEl.textContent = ''; }, 3000);
   });
 
   loadEntries();
