@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>♡ welcome to cait.lol ♡</title>
+<style>
+  /* ═══ EDIT ME: colors ═══ */
+  :root{
+    --bubblegum:#ffb7e5;
+    --lilac:#c8a2ff;
+    --cyber:#7ef9ff;
+    --butter:#fff3a0;
+    --grape:#3b1e55;
+    --shell:#fdf6ff;
+    --display:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive;
+    --body:Verdana,Tahoma,Geneva,sans-serif;
+    --mono:"Courier New",monospace;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:24px 12px 60px;
+    font-family:var(--body); font-size:13px; line-height:1.7; color:var(--grape);
+    background:
+      radial-gradient(circle at 20% 15%, #fff 1px, transparent 2px) 0 0/70px 70px,
+      radial-gradient(circle at 70% 60%, #fff 1px, transparent 2px) 0 0/90px 90px,
+      linear-gradient(160deg, var(--cyber), var(--bubblegum) 45%, var(--lilac));
+    background-attachment:fixed;
+  }
+
+  /* ═══ the window ═══ */
+  .window{
+    max-width:720px; margin:0 auto;
+    background:var(--shell);
+    border:3px solid var(--grape);
+    border-radius:10px;
+    box-shadow:8px 8px 0 rgba(59,30,85,.35);
+    overflow:hidden;
+  }
+  .titlebar{
+    display:flex; align-items:center; gap:8px;
+    padding:6px 10px;
+    background:linear-gradient(180deg,var(--lilac),var(--bubblegum));
+    border-bottom:3px solid var(--grape);
+    font-family:var(--display); font-size:15px;
+  }
+  .titlebar .dots{margin-left:auto; display:flex; gap:5px}
+  .titlebar .dots span{
+    width:15px; height:15px; display:grid; place-items:center;
+    font-size:9px; font-family:var(--mono);
+    background:var(--shell); border:2px solid var(--grape); border-radius:3px;
+  }
+
+  /* ═══ scrolling banner ═══ */
+  .ticker{
+    overflow:hidden; white-space:nowrap;
+    background:var(--butter); border-bottom:3px solid var(--grape);
+    font-family:var(--mono); font-size:12px; padding:5px 0;
+  }
+  .ticker span{display:inline-block; padding-left:100%; animation:slide 18s linear infinite}
+  @keyframes slide{to{transform:translateX(-100%)}}
+
+  .body{display:flex; flex-wrap:wrap}
+
+  /* ═══ side nav ═══ */
+  nav{
+    flex:1 1 150px; padding:16px 12px;
+    background:linear-gradient(180deg,#fff,var(--cyber));
+    border-right:3px dashed var(--grape);
+  }
+  nav a{
+    display:block; margin-bottom:8px; padding:6px 8px;
+    background:var(--shell); border:2px solid var(--grape); border-radius:6px;
+    color:var(--grape); text-decoration:none; font-family:var(--display);
+  }
+  nav a:hover,nav a:focus{background:var(--butter); transform:translate(-2px,-2px); box-shadow:3px 3px 0 var(--grape)}
+
+  main{flex:3 1 340px; padding:18px 20px; min-width:0}
+  h1{font-family:var(--display); font-size:30px; margin:0 0 4px; text-shadow:2px 2px 0 var(--bubblegum)}
+  h2{
+    font-family:var(--display); font-size:19px; margin:26px 0 6px;
+    border-bottom:3px dotted var(--lilac); padding-bottom:2px;
+  }
+  h2:first-of-type{margin-top:0}
+  .tagline{font-family:var(--mono); font-size:12px; margin:0 0 6px}
+  a{color:#c3238e}
+
+  ul{padding-left:18px; margin:6px 0}
+  li{margin-bottom:4px}
+
+  .badges{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
+  .badge{
+    font-family:var(--mono); font-size:10px; padding:3px 7px;
+    border:2px solid var(--grape); border-radius:4px; background:var(--butter);
+  }
+  .badge:nth-child(2n){background:var(--cyber)}
+  .badge:nth-child(3n){background:var(--bubblegum)}
+
+  .counter{
+    display:inline-flex; gap:2px; font-family:var(--mono); font-size:15px;
+  }
+  .counter b{
+    background:var(--grape); color:var(--cyber);
+    padding:2px 5px; border-radius:3px; font-weight:normal;
+  }
+
+  footer{
+    text-align:center; padding:12px; font-family:var(--mono); font-size:11px;
+    background:linear-gradient(90deg,var(--bubblegum),var(--lilac));
+    border-top:3px solid var(--grape);
+  }
+
+  /* ═══ guestbook ═══ */
+  .gb-form{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0}
+  .gb-form input,.gb-form textarea{
+    font-family:var(--body); font-size:12px; padding:6px;
+    border:2px solid var(--grape); border-radius:5px; background:#fff; color:var(--grape);
+  }
+  .gb-form input{flex:1 1 120px}
+  .gb-form textarea{flex:1 1 100%; min-height:56px; resize:vertical}
+  button{
+    font-family:var(--display); font-size:14px; padding:6px 14px; cursor:pointer;
+    background:var(--butter); border:2px solid var(--grape); border-radius:6px; color:var(--grape);
+  }
+  button:hover{background:var(--bubblegum); transform:translate(-2px,-2px); box-shadow:3px 3px 0 var(--grape)}
+  .status{font-family:var(--mono); font-size:11px; min-height:16px}
+  .entry{border-left:4px solid var(--lilac); padding:2px 0 2px 8px; margin:8px 0}
+  .entry b{font-family:var(--display); font-size:14px}
+  .entry small{font-family:var(--mono); opacity:.6}
+
+  /* ═══ tarot ═══ */
+  .spread{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+  .card{
+    flex:1 1 120px; min-height:150px; padding:10px; text-align:center;
+    border:3px solid var(--grape); border-radius:8px;
+    background:linear-gradient(160deg,#fff,var(--cyber));
+    box-shadow:4px 4px 0 rgba(59,30,85,.3);
+    animation:flip .5s ease-out both;
+  }
+  .card .pos{font-family:var(--mono); font-size:10px; text-transform:uppercase; opacity:.7}
+  .card .name{font-family:var(--display); font-size:16px; margin:6px 0 2px}
+  .card .glyph{font-size:26px}
+  .card .mean{font-size:11px; line-height:1.5}
+  .card.rev{background:linear-gradient(160deg,#fff,var(--bubblegum))}
+  .card.rev .glyph{display:inline-block; transform:rotate(180deg)}
+  .card:nth-child(2){animation-delay:.15s}
+  .card:nth-child(3){animation-delay:.3s}
+  @keyframes flip{from{opacity:0; transform:rotateY(90deg) translateY(10px)}}
+
+  .sparkle{position:fixed; pointer-events:none; font-size:13px; animation:poof .8s ease-out forwards; z-index:99}
+  @keyframes poof{to{opacity:0; transform:translateY(-22px) scale(.4) rotate(90deg)}}
+
+  @media (prefers-reduced-motion:reduce){
+    .ticker span{animation:none; padding-left:0}
+    .sparkle{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="window">
+  <div class="titlebar">
+    <span>💾</span> my_homepage.html
+    <div class="dots"><span>_</span><span>□</span><span>✕</span></div>
+  </div>
+
+  <div class="ticker"><span>★ welcome 2 my site ★ best viewed with ur eyeballs ★ sign the guestbook !! ★ under construction 4evr ★</span></div>
+
+  <div class="body">
+    <nav>
+      <!-- EDIT ME: your links -->
+      <a href="#about">✿ about me</a>
+      <a href="#stuff">✿ my stuff</a>
+      <a href="#now">✿ now</a>
+      <a href="#tarot">✿ tarot</a>
+      <a href="#guestbook">✿ guestbook</a>
+      <a href="#talk">✿ say hi</a>
+      <p class="badges">
+        <span class="badge">100% gluten-free</span>
+        <span class="badge">no seed oils</span>
+        <span class="badge">zero calories</span>
+      </p>
+    </nav>
+
+    <main>
+      <h1 id="about">hi, i'm cait.</h1>
+      <p class="tagline">student. developer. ginger. · toronto · she/her</p>
+      <p>welcome to my tiny corner of the internet !! i make things, i break things, and this page is where they all live. no algorithm, no ads, just meee >_&lt;</p>
+
+      <h2 id="stuff">my stuff</h2>
+      <ul>
+        <li><a href="#">project one</a> — PLACEHOLD</li>
+        <li><a href="#">project two</a> — PLACEHOLDER</li>
+        <li><a href="#">project three</a> — PLACEHOLDER</li>
+      </ul>
+
+      <h2 id="now">now</h2>
+      <ul>
+        <li>📖 reading: [book]</li>
+        <li>🎧 listening: [album]</li>
+        <li>🛠️ building: [thing]</li>
+      </ul>
+
+      <h2 id="tarot">daily tarot</h2>
+      <p>three cards: past, present, what's coming. for entertainment only, obviously :P</p>
+      <button id="draw">✦ draw three ✦</button>
+      <div class="spread" id="spread"></div>
+
+      <h2 id="guestbook">guestbook</h2>
+      <div class="gb-form">
+        <input id="gb-name" placeholder="your name" maxlength="40">
+        <input id="gb-url" placeholder="your site (optional)" maxlength="120">
+        <textarea id="gb-msg" placeholder="leave a note ♡" maxlength="500"></textarea>
+      </div>
+      <button id="gb-send">sign it</button>
+      <p class="status" id="gb-status"></p>
+      <div id="gb-entries"></div>
+
+      <h2 id="talk">say hi</h2>
+      <p>email me at <a href="mailto:you@example.com">you@example.com</a>, or find me on <a href="#">github</a> ♡</p>
+
+      <p style="margin-top:22px">
+        you are visitor number
+        <span class="counter"><b>0</b><b>0</b><b>1</b><b>3</b><b>3</b><b>7</b></span>
+      </p>
+    </main>
+  </div>
+
+  <footer>♡ made with love + notepad, 2026 ♡</footer>
+</div>
+
+<script>
+  /* ═══════════ TAROT ═══════════
+     22 major arcana. swap in your own deck/meanings any time. */
+  var DECK = [
+    ["The Fool","🃏","a leap worth taking","hesitating at the edge"],
+    ["The Magician","🪄","you have every tool already","scattered focus"],
+    ["The High Priestess","🌙","trust the quiet hunch","ignoring your gut"],
+    ["The Empress","🌷","abundance, softness, growth","neglecting your own care"],
+    ["The Emperor","🏛️","structure makes you free","control that's gone rigid"],
+    ["The Hierophant","📜","learn from someone older","rules that no longer fit"],
+    ["The Lovers","💞","a choice made with the whole heart","values pulling apart"],
+    ["The Chariot","🛞","momentum, if you steer","spinning wheels"],
+    ["Strength","🦁","gentleness is the power move","forcing it"],
+    ["The Hermit","🕯️","go inward, take the long walk","isolation dressed as focus"],
+    ["Wheel of Fortune","🎡","the cycle turns in your favour","waiting on luck to save you"],
+    ["Justice","⚖️","consequences, fairly earned","avoiding the honest accounting"],
+    ["The Hanged Man","🙃","a new angle from stillness","stalling and calling it patience"],
+    ["Death","🦋","let the ending finish","clinging past the expiry date"],
+    ["Temperance","🍵","the middle path, slowly","all or nothing again"],
+    ["The Devil","⛓️","name what has a hold on you","the chain is looser than it looks"],
+    ["The Tower","⚡","the collapse clears the ground","delaying the inevitable"],
+    ["The Star","⭐","hope, quiet and real","faith running low"],
+    ["The Moon","🌘","not everything is as it seems","confusion lifting"],
+    ["The Sun","☀️","plain uncomplicated joy","the clouds are temporary"],
+    ["Judgement","📯","the call to begin again","ignoring your own verdict"],
+    ["The World","🌍","completion, well earned","one loose thread left"]
+  ];
+  var POSITIONS = ["past","present","coming"];
+
+  document.getElementById('draw').addEventListener('click', function(){
+    var pool = DECK.slice(), out = '';
+    for (var i = 0; i < 3; i++) {
+      var c = pool.splice(Math.floor(Math.random() * pool.length), 1)[0];
+      var rev = Math.random() < 0.35;
+      out += '<div class="card' + (rev ? ' rev' : '') + '">' +
+               '<div class="pos">' + POSITIONS[i] + '</div>' +
+               '<div class="glyph">' + c[1] + '</div>' +
+               '<div class="name">' + c[0] + '</div>' +
+               '<div class="mean">' + (rev ? '(reversed) ' + c[3] : c[2]) + '</div>' +
+             '</div>';
+    }
+    document.getElementById('spread').innerHTML = out;
+  });
+
+  /* ═══════════ GUESTBOOK ═══════════
+     EDIT ME: paste your Apps Script /exec URL here. */
+  var GUESTBOOK_URL = "";
+
+  var status = document.getElementById('gb-status');
+  var esc = function(s){
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function(m){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];
+    });
+  };
+
+  function loadEntries(){
+    if (!GUESTBOOK_URL) { status.textContent = 'guestbook not connected yet'; return; }
+    fetch(GUESTBOOK_URL)
+      .then(function(r){ return r.json(); })
+      .then(function(rows){
+        document.getElementById('gb-entries').innerHTML = rows.slice().reverse().map(function(e){
+          var who = e.url ? '<a href="' + esc(e.url) + '" rel="nofollow noopener">' + esc(e.name) + '</a>' : esc(e.name);
+          return '<div class="entry"><b>' + who + '</b> <small>' + esc(e.date || '') + '</small><br>' + esc(e.message) + '</div>';
+        }).join('');
+      })
+      .catch(function(){ status.textContent = "couldn't load the guestbook — try refreshing"; });
+  }
+
+  document.getElementById('gb-send').addEventListener('click', function(){
+    var name = document.getElementById('gb-name').value.trim();
+    var msg  = document.getElementById('gb-msg').value.trim();
+    if (!name || !msg) { status.textContent = 'name and note are both needed!'; return; }
+    if (!GUESTBOOK_URL) { status.textContent = 'add your Apps Script URL first'; return; }
+    status.textContent = 'sending...';
+    fetch(GUESTBOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // avoids a CORS preflight
+      body: JSON.stringify({
+        name: name,
+        url: document.getElementById('gb-url').value.trim(),
+        message: msg
+      })
+    })
+    .then(function(){
+      status.textContent = 'signed! thank u ♡';
+      document.getElementById('gb-msg').value = '';
+      loadEntries();
+    })
+    .catch(function(){ status.textContent = "that didn't send — try again in a sec"; });
+  });
+
+  loadEntries();
+
+  // sparkle trail — delete these 8 lines if it gets annoying :P
+  var last = 0;
+  document.addEventListener('mousemove', function(e){
+    if (Date.now() - last < 70) return;
+    last = Date.now();
+    var s = document.createElement('div');
+    s.className = 'sparkle';
+    s.textContent = ['✦','✧','·','♡'][Math.floor(Math.random()*4)];
+    s.style.left = e.clientX + 'px';
+    s.style.top = e.clientY + 'px';
+    document.body.appendChild(s);
+    setTimeout(function(){ s.remove(); }, 800);
+  });
+</script>
+</body>
+</html>
